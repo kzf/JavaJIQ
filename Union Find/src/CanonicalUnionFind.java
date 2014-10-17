@@ -6,6 +6,9 @@
  *         Union-find implementation where each element has a canonical element.
  *         The canonical element in this implementation is the largest element
  *         in the same connected component.
+ *         
+ *         We implement weighted quick union where the weight of a subtree is 
+ *         it's height i.e. the length of the longest path from the root to a node.
  * 
  *         The interface assumes the union-find structure is over the integers
  *         [0..N].
@@ -83,6 +86,8 @@ public class CanonicalUnionFind {
                 height[p] = hp + 1;
         }
         
+        
+        
         ncomponents--;
     }
     
@@ -116,7 +121,7 @@ public class CanonicalUnionFind {
         if (i < 0 || i >= size) 
             throw new java.lang.IndexOutOfBoundsException();
         
-        return canonical[i];
+        return canonical[root(i)];
     }
 
     /**

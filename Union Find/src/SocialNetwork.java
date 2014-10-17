@@ -38,8 +38,8 @@ public class SocialNetwork {
     }
     
     private static class UnitTest {
-        private String filename;
-        private int expected;
+        public String filename;
+        public int expected;
         
         public UnitTest(String filename, int expected) {
             this.filename = filename;
@@ -55,9 +55,10 @@ public class SocialNetwork {
         for(UnitTest x: tests) {
             int result  = timeUntilConnected("tests/UnionFind/" + x.filename);
             if (result == x.expected) {
-                StdOut.print("Test " + x.filename + " worked as expected.");
+                StdOut.println("Test " + x.filename + " worked as expected.");
             } else {
-                StdOut.print(">>>> Test " + x.filename + " failed; got ");
+                StdOut.println(">>>> Test " + x.filename + " failed; got " 
+                               + result + " where " + x.expected + " was expected");
             }
         }
     }
